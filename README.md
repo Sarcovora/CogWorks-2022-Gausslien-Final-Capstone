@@ -1,4 +1,4 @@
-# CogWorks 2022 Gausslien _ Capstone
+# CogWorks 2022 Gausslien Final Capstone
 
 # Creating an installable Python package
  
