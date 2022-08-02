@@ -58,11 +58,7 @@ def find_eyes(image_data, *, box_threshold=0.97, prop_const=0.13):
     
     return leftBox, rightBox, image_data
 
-def eye_img(filepath):
-    # pic = np.array(Image.open(filepath))[:,:,:3]
-    # shape-(Height, Width, Color)
-    pic = io.imread(str(filepath))
-
+def eye_img(pic):
     if pic.shape[-1] == 4:
         # Image is RGBA, where A is alpha -> transparency
         # Must make image RGB.
