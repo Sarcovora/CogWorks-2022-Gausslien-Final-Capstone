@@ -2,7 +2,7 @@ import numpy as np
 from facenet_models import FacenetModel
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-import cv2 as cv
+import cv2
 
 def find_eyes(image_data, *, box_threshold=0.97, prop_const=0.13, disp=False):
     """
@@ -25,7 +25,7 @@ def find_eyes(image_data, *, box_threshold=0.97, prop_const=0.13, disp=False):
 
         if boxes is None or probabilities[0]<box_threshold:
             i+=1
-            image_data = cv.rotate(image_data, cv.ROTATE_90_CLOCKWISE)
+            image_data = cv2.rotate(image_data, cv2.ROTATE_90_CLOCKWISE)
             continue
         
         box = boxes[0]
