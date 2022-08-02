@@ -2,7 +2,6 @@ import numpy as np
 from facenet_models import FacenetModel
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-import skimage.io as io
 import cv2
 
 def find_eyes(image_data, *, box_threshold=0.97, prop_const=0.13):
