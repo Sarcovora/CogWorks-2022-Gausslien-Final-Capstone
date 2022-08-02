@@ -61,6 +61,7 @@ def find_eyes(image_data, *, box_threshold=0.97, prop_const=0.13, disp=False):
         
         ax.plot(lefteye[0], lefteye[1], "+", color="blue")
         ax.plot(righteye[0], righteye[1], "+", color="blue")
+        plt.show()
     
     return leftBox, rightBox, image_data
 
@@ -90,7 +91,10 @@ def eye_img(pic, *, disp=False):
     
     if disp:
         fig, axes = plt.subplots(1,2)
+        axes[0].set_title("LEFT")
         axes[0].imshow(lefteye, cmap="gray")
+        axes[1].set_title("RIGHT")
         axes[1].imshow(righteye, cmap="gray")
+        plt.show()
     
     return lefteye, righteye

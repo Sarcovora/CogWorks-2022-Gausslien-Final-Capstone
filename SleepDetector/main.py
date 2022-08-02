@@ -21,7 +21,7 @@ def user_interface():
     return eye_img(pic,disp=True)
 
 if (not torch.cuda.is_available()):
-    print("NOT USING GPU")
+    print("USING CPU")
     device = torch.device('cpu')
 else:
     print("USING GPU")
@@ -37,8 +37,7 @@ right = torch.tensor(right, device=device).reshape(1,1,24,24).float()/255
 left = torch.argmax(model(left)).item()
 right = torch.argmax(model(right)).item()
 
-def printer(eyeopen):
-    return "open" if eyeopen else "closed"
-
-print("Left eye " + printer(left))
-print("Right eye " + printer(right))
+if left or right:
+    print("Eyes open")
+else:
+    print("Eyes closed")
