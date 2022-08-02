@@ -18,19 +18,21 @@ def user_interface():
             break
         else:
             print("Invalid input. Try again. ")
-        eye_img(pic)
+    return eye_img(pic,disp=True)
 
 if (not torch.cuda.is_available()):
     print("NOT USING GPU")
-    model = torch.load("model.pb", map_location=torch.device('cpu'))
+    device = torch.device('cpu')
 else:
     print("USING GPU")
-    model = torch.load("model.pb", map_location=torch.device('cuda'))
+    device = torch.device('cuda')
+
+model = torch.load("model.pb", map_location=device)
 
 left, right = user_interface()
 
-left = torch.tensor(left).reshape(1,1,24,24).float()/255
-right = torch.tensor(right).reshape(1,1,24,24).float()/255
+left = torch.tensor(left, device=device).reshape(1,1,24,24).float()/255
+right = torch.tensor(right, device=device).reshape(1,1,24,24).float()/255
 
 left = torch.argmax(model(left)).item()
 right = torch.argmax(model(right)).item()
@@ -38,5 +40,5 @@ right = torch.argmax(model(right)).item()
 def printer(eyeopen):
     return "open" if eyeopen else "closed"
 
-print("Left eye "+printer(left))
-print("Right eye "+printer(right))
+print("Left eye " + printer(left))
+print("Right eye " + printer(right))
