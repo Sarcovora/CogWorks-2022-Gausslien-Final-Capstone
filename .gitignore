@@ -163,3 +163,4 @@ cython_debug/
 SleepDetector/train_dataset/
 PackageDetection/dataset/
 PackageDetection/vggmodel.pb
+PackageDetection/vggmodel_aug.pb
