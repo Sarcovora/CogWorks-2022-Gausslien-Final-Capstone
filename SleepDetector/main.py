@@ -38,6 +38,6 @@ left = torch.argmax(model(left)).item()
 right = torch.argmax(model(right)).item()
 
 if left or right:
-    print("Eyes open")
+    print("Lights On")
 else:
-    print("Eyes closed")
+    print("Lights Off")
