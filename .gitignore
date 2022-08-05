@@ -164,3 +164,4 @@ SleepDetector/train_dataset/
 PackageDetection/dataset/
 PackageDetection/vggmodel.pb
 PackageDetection/vggmodel_aug.pb
+.vector_cache/
